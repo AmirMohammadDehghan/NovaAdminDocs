@@ -46,7 +46,7 @@ Logout باید فرم POST با CSRF باشد. در `admin/base.html` user drop
 
 ```django
 <form method="post" action="{% raw %}{% url 'admin:logout' %}{% endraw %}">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     <button type="submit">{% raw %}{% trans 'Log out' %}{% endraw %}</button>
 </form>
 ```
