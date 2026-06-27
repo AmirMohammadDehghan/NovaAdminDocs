@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'fa' }}" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#content">پرش به محتوا</a>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="icon-button nav-toggle" type="button" aria-label="باز کردن منو" data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Nova Admin Documentation">
+      <span class="brand-mark">N</span>
+      <span>
+        <strong>Nova Admin</strong>
+        <small>Developer Docs</small>
+      </span>
+    </a>
+    <div class="topbar-actions">
+      <label class="search-box" for="site-search">
+        <span>جستجو</span>
+        <input id="site-search" type="search" placeholder="جستجو در مستندات…" autocomplete="off" data-search-input>
+      </label>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="تغییر تم">تم</button>
+    </div>
+  </header>
+
+  <div class="search-panel" data-search-panel hidden>
+    <div class="search-panel__head">نتایج جستجو</div>
+    <div class="search-results" data-search-results></div>
+  </div>
+
+  <div class="shell">
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-inner">
+        <nav class="nav" aria-label="فهرست مستندات">
+          {% for item in site.data.navigation %}
+            <a class="nav-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">
+              <span>{{ item.title }}</span>
+              <small>{{ item.description }}</small>
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content" id="content">
+      <article class="doc-card">
+        <div class="doc-meta">
+          <span>مستندات Nova Admin</span>
+          {% if page.description %}<span>{{ page.description }}</span>{% endif %}
+        </div>
+        {{ content }}
+      </article>
+      <footer class="footer">
+        <span>ساخته‌شده برای مستندات Nova Admin</span>
+        <a href="{{ '/deployment/' | relative_url }}">انتشار روی GitHub Pages</a>
+      </footer>
+    </main>
+
+    <aside class="toc" data-toc>
+      <div class="toc-title">در این صفحه</div>
+      <nav data-toc-list></nav>
+    </aside>
+  </div>
+
+  <script src="{{ '/assets/js/search-data.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+title: Nova Admin Documentation
+description: Markdown-based developer documentation for Nova Admin Django Admin theme.
+lang: fa
+# برای project site مقدار را به نام repository تغییر بده، مثلاً: /nova-admin-docs
+baseurl: ""
+url: ""
+timezone: Asia/Baku
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README_GITHUB_PAGES.md
+  - LICENSE
+sass:
+  style: compressed
