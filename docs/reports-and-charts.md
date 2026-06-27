@@ -118,8 +118,8 @@ donut_gradient = "conic-gradient(...)"
 <article class="nova-report-card nova-chart-card">
     <header class="nova-chart-head">
         <div>
-            <span class="nova-report-label">{% trans 'My chart' %}</span>
-            <h3>{% trans 'Readable Persian title' %}</h3>
+            <span class="nova-report-label">{% raw %}{% trans 'My chart' %}{% endraw %}</span>
+            <h3>{% raw %}{% trans 'Readable Persian title' %}{% endraw %}</h3>
         </div>
     </header>
     ...

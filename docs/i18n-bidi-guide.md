@@ -16,7 +16,7 @@ description: راهنمای زبان‌ها، جهت صفحه و متن فارس
 {% get_current_language as LANGUAGE_CODE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
-<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% raw %}{% if LANGUAGE_BIDI %}{% endraw %}rtl{% else %}ltr{% raw %}{% endif %}{% endraw %}">
 ```
 
 اگر `LANGUAGE_CODE = "fa-ir"` باشد، `LANGUAGE_BIDI` معمولاً true است و صفحه RTL می‌شود.
@@ -52,8 +52,8 @@ MIDDLEWARE = [
 هر متن قابل ترجمه در template باید یکی از این دو شکل باشد:
 
 ```django
-{% trans 'Dashboard' %}
-{% blocktrans with name=opts.verbose_name %}Add {{ name }}{% endblocktrans %}
+{% raw %}{% trans 'Dashboard' %}{% endraw %}
+{% raw %}{% blocktrans with name=opts.verbose_name %}{% endraw %}Add {{ name }}{% raw %}{% endblocktrans %}{% endraw %}
 ```
 
 در Python:

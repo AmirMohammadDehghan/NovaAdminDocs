@@ -45,9 +45,9 @@ localStorage.removeItem("jazzy-theme");
 Logout باید فرم POST با CSRF باشد. در `admin/base.html` user dropdown باید شبیه این باشد:
 
 ```django
-<form method="post" action="{% url 'admin:logout' %}">
+<form method="post" action="{% raw %}{% url 'admin:logout' %}{% endraw %}">
     {% csrf_token %}
-    <button type="submit">{% trans 'Log out' %}</button>
+    <button type="submit">{% raw %}{% trans 'Log out' %}{% endraw %}</button>
 </form>
 ```
 

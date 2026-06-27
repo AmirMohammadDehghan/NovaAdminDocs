@@ -144,7 +144,7 @@ border-inline-end: 1px solid var(--border);
 1. داده را در `dashboard_report_data(app_list)` بساز.
 2. markup را در `templates/admin/index.html` اضافه کن.
 3. CSS بخش جدید را در قسمت گزارش‌ها در `main.css` قرار بده.
-4. متن‌ها را با `{% trans %}` بنویس.
+4. متن‌ها را با `{% raw %}{% trans %}{% endraw %}` بنویس.
 5. ترجمه فارسی را در `locale/fa/LC_MESSAGES/django.po` اضافه کن.
 6. `django.mo` را compile کن.
 
